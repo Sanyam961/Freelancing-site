@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-container-high: #f0e6e5;
+  --color-on-surface-variant: #655d5d;
+  --color-on-tertiary-fixed-variant: #6d4d5d;
+  --color-on-primary-fixed-variant: #685857;
+  --color-background: #fff8f7;
+  --color-secondary-fixed-dim: #ded2d1;
+  --color-secondary-fixed: #ede0de;
+  --color-secondary-container: #ede0de;
+  --color-tertiary-container: #f9cee2;
+  --color-on-error: #fff7f6;
+  --color-outline-variant: #b9b0af;
+  --color-on-surface: #373131;
+  --color-tertiary-dim: #6a4a5a;
+  --color-inverse-primary: #f1dad9;
+  --color-on-secondary-fixed: #453d3d;
+  --color-on-tertiary: #fff7f8;
+  --color-on-tertiary-fixed: #4e3141;
+  --color-on-secondary: #fff7f6;
+  --color-on-primary: #fff6f5;
+  --color-tertiary-fixed: #f9cee2;
+  --color-surface-dim: #e3d7d6;
+  --color-surface-container-lowest: #ffffff;
+  --color-tertiary: #765566;
+  --color-primary: #6b5a5a;
+  --color-inverse-on-surface: #a19c9b;
+  --color-surface-container-low: #faf2f1;
+  --color-surface-bright: #fff8f7;
+  --color-surface-container-highest: #ebe0df;
+  --color-primary-fixed-dim: #e6cfce;
+  --color-surface-tint: #6b5a5a;
+  --color-error-container: #fe8b70;
+  --color-on-background: #373131;
+  --color-primary-dim: #5f4f4e;
+  --color-error-dim: #5c1202;
+  --color-error: #9e422c;
+  --color-on-error-container: #742410;
+  --color-inverse-surface: #100e0e;
+  --color-secondary: #665d5c;
+  --color-primary-container: #f4dddc;
+  --color-surface-variant: #ebe0df;
+  --color-on-primary-fixed: #4b3c3b;
+  --color-on-secondary-fixed-variant: #625959;
+  --color-surface-container: #f5eceb;
+  --color-tertiary-fixed-dim: #eac1d4;
+  --color-on-secondary-container: #58504f;
+  --color-primary-fixed: #f4dddc;
+  --color-secondary-dim: #5a5151;
+  --color-on-primary-container: #5e4e4d;
+  --color-outline: #817978;
+  --color-on-tertiary-container: #624354;
+  --color-surface: #fff8f7;
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+  --font-display: "Inter", sans-serif;
+}
+
+:root {
+  --background: #fffdfa;
+  --foreground: #1a1a1a;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: max(884px, 100dvh);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.signature-gradient {
+  background: linear-gradient(135deg, #4a4bd7 0%, #3d3dcb 100%);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.glass-card {
+  background: rgba(25, 31, 49, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fffdfa;
+    --foreground: #1a1a1a;
+  }
+}
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Hero Scene Animations ── */
+
+@keyframes balloon-float {
+  0%   { transform: translateY(0px) rotate(-1.5deg); }
+  25%  { transform: translateY(-14px) rotate(0.5deg); }
+  50%  { transform: translateY(-22px) rotate(1.5deg); }
+  75%  { transform: translateY(-10px) rotate(-0.5deg); }
+  100% { transform: translateY(0px) rotate(-1.5deg); }
+}
+
+@keyframes cloud-drift-1 {
+  0%   { transform: translateX(0px); }
+  50%  { transform: translateX(28px); }
+  100% { transform: translateX(0px); }
+}
+
+@keyframes cloud-drift-2 {
+  0%   { transform: translateX(0px); }
+  50%  { transform: translateX(-22px); }
+  100% { transform: translateX(0px); }
+}
+
+@keyframes cloud-drift-3 {
+  0%   { transform: translateX(0px) translateY(0px); }
+  33%  { transform: translateX(18px) translateY(-6px); }
+  66%  { transform: translateX(-10px) translateY(4px); }
+  100% { transform: translateX(0px) translateY(0px); }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-balloon {
+  animation: balloon-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-1 {
+  animation: cloud-drift-1 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-2 {
+  animation: cloud-drift-2 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-3 {
+  animation: cloud-drift-3 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-scene-fade {
+  animation: hero-fade-in 1.2s ease-out both;
+}
+
